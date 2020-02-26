@@ -1,4 +1,4 @@
-**The Effects of Spatial Agglomeration on Relative Net Profitability: a prospective look at Seoul’s retail market sector using machine learning**
+> **The Effects of Spatial Agglomeration on Relative Net Profitability: a prospective look at Seoul’s retail market sector using machine learning**
 
 # Introduction
 ## Background
@@ -19,10 +19,13 @@ Stakeholders looking to open new businesses will often dispute which part of a c
 
 
 # Data Required
-Foursquare API for finding nearby venues based on location
-Seoul Public Data API for general data and statistics including locational data, income per district, open source retail market income data and the addresses of retail markets.
-Kakao Developer’s REST API for location to coordinate conversion and local market keyword search API’s. 
-TripAdvisor and Korea’s public data sets for determining which localities are considered to be clustered together.
+- Foursquare API for finding nearby venues based on location
+
+- Seoul Public Data API for general data and statistics including locational data, income per district, open source retail market income data and the addresses of retail markets.
+
+- Kakao Developer’s REST API for location to coordinate conversion and local market keyword search API’s. 
+
+- TripAdvisor and Korea’s public data sets for determining which localities are considered to be clustered together.
 
 
 # References
