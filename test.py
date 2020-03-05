@@ -168,3 +168,54 @@ def getNearbyVenues(lat, lon, category, radius, limit=100):
 getNearbyVenues('37.554679', '126.970607',  '4d4b7105d754a06374d81259', 500)
 
 # %%
+url = 'http://openapi.seoul.go.kr:8088/714e5362527374653736677767695a/json/VwsmTrdarSelngQq/1/5/2017'
+results = requests.get(url).json()
+results
+
+# %%
+seoul_data_appkey = '714e5362527374653736677767695a'
+
+url = 'http://openAPI.seoul.go.kr:8088/{}/json/IndividualServiceChargeService/1/100/'.format(seoul_data_appkey)
+results = requests.get(url).json()
+results = results['IndividualServiceChargeService']['row']
+results
+
+
+# %%
+df = pd.read_csv('Data/seoul_district_gdp.csv')
+df.head()
+
+# %%
+df = df[df['자치구'] != '서울시']
+df.head()
+
+# %%
+
+df.describe()
+
+# %%
+naver_CLIENT_ID = 'wV1d6h2eUKntr7qZBHCB'
+naver_CLIENT_SECRET = 'HDtvNbIyQp'
+def search_naver_query(query: str) -> int:
+    encText = urllib.parse.quote(query)
+    url = "https://openapi.naver.com/v1/search/blog?query=" + encText
+    request = urllib.request.Request(url)
+    request.add_header("X-Naver-Client-Id",naver_CLIENT_ID)
+    request.add_header("X-Naver-Client-Secret",naver_CLIENT_SECRET)
+    response = urllib.request.urlopen(request)
+    rescode = response.getcode()
+    if(rescode==200):
+        response_body = response.read()
+        results = response_body.decode('utf-8')
+        data = json.loads(results)
+        return data
+    else:
+        print("Error Code:" + rescode)
+
+search_naver_query('서울역 더하우스 1932')
+
+# %%
+
+search_naver_query('홍대입구 1984')
+
+# %%
